@@ -1,25 +1,56 @@
-name: CI
+name: Deploy Frontend to GitHub Pages
 
 on:
-  push: 
-    branches: ["master"]
+  push:
+    branches:
+      - "main" # Запуск при пуші в гілку main
 
-  workflow_dispatch:
+# Налаштування дозволів, необхідних для деплою на Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build:
+  build_and_deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v3
+      # 1. Отримання коду репозиторію
+      - name: Checkout
+        uses: actions/checkout@v4
 
+      # 2. Налаштування середовища Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Рекомендується використовувати актуальну версію
+          cache: 'npm' # Кешування залежностей для прискорення
+
+      # 3. Встановлення залежностей
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Buils
+      # 4. Створення продакшн-збірки (використовує 'npm run build', який створює папку 'dist')
+      # Важливо: Переконайтеся, що ви додали 'homepage' у package.json або 'base' у vite.config.js
+      - name: Build project
         run: npm run build
 
-      - id: build-publish
-        uses: bitovi/github-actions-react-to-github-pages@v1.2.4
+      # 5. Налаштування середовища GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 6. Завантаження зібраних артефактів (папка dist)
+      # Цей крок бере вміст папки 'dist' і готує його до деплою
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
-      
+          path: './dist' 
+
+      # 7. Деплой артефактів на GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
