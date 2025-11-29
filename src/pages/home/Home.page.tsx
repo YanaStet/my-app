@@ -1,12 +1,5 @@
-import { postHooks } from "@/entities/posts/hooks";
-import { Button } from "@/shared/shadcn-ui/button";
+import { PostList } from "./post-list/PostList";
 
 export function HomePage() {
-  const { data } = postHooks.usePostQuery();
-  console.log(data);
-  return (
-    <div className="p-5">
-      <Button />
-    </div>
-  );
+  return <PostList />;
 }
