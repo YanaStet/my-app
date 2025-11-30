@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+# 🚀 Modern React Posts Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A light and modern web app built to show good skills in the **React ecosystem**, **TypeScript**, and modern design methods.
 
-Currently, two official plugins are available:
+## 🌟 Main Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Data Management:** It fetches data effectively using **TanStack Query (v4/v5)**. This tool helps load, cache, and update data automatically for a smooth user experience.
+* **Navigation:** It uses **React Router DOM** to manage the pages, allowing users to move between sections quickly without reloading the whole page.
+* **Design & Look:** The app has a clean and flexible design thanks to **Tailwind CSS** (for quick styling) and ready-to-use, accessible parts from **Shadcn UI**.
+* **Safe Code:** The whole code is written in **TypeScript**. This means the code is checked for errors more easily, making the development process safer and clearer.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tools Used & Structure
 
-## Expanding the ESLint configuration
+This project follows modern development rules and shows experience with these tools:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Category | Technology | What it does in the project |
+| :--- | :--- | :--- |
+| **Core** | **React (v18+)** | Used for building modern components (the building blocks of the app). |
+| **Language** | **TypeScript** | Adds strong type definitions for better code quality and fewer bugs. |
+| **Styling** | **Tailwind CSS** | Used for fast, utility-based styling to create a responsive layout. |
+| **UI Library** | **Shadcn UI** | Provides easy-to-use, well-designed components (like buttons and text styles). |
+| **Data** | **TanStack Query** | Manages data requests, smart caching, and how the app shows loading and error states. |
+| **Routing** | **React Router DOM** | Handles the structure and movement between different views (pages) of the app. |
+| **API** | **JSONPlaceholder** | The external source used to get the fake post information. |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 💻 Live Demo & Setup
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🔗 Live Demo
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+You can view the finished application online here:
+**https://yanastet.github.io/my-app/**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 📦 Installation and Local Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+To start this project on your own computer, please follow these simple steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone my-app
+    ```
+2.  **Go to the project folder:**
+    ```bash
+    cd my-app
+    ```
+3.  **Install the necessary files (dependencies):**
+    ```bash
+    npm install
+    # or yarn install
+    ```
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    # or yarn dev
+    ```
+    The application will open at `http://localhost:3000`.
+
+---
+
+## 🖼️ Visual Showcase
+
+A look at the application's design and how it adapts to different screen sizes.
+
+<img width="1920" height="880" alt="image" src="https://github.com/user-attachments/assets/6917cdc4-6b67-4f7c-ae05-2ae309b2dfb8" />
+<img width="423" height="752" alt="image" src="https://github.com/user-attachments/assets/804d0daa-2912-4e37-abf0-d3f876f86424" />
+
+
+---
+
+## ✅ Skills You Can See Here
+
+This project is a great example of my abilities, showing competence in:
+
+* **Creating a strong and attractive user interface** with Shadcn/Tailwind.
+* **Managing data well** using **TanStack Query** for better speed and performance.
+* **Writing code safely** by using TypeScript for type checking.
+* **Following good rules** in modern React development (like separating components and creating useful hooks).
