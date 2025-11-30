@@ -1,4 +1,4 @@
-# 🚀 Modern React Posts Viewer
+# 🚀 React Posts Viewer
 
 > A light and modern web app built to show good skills in the **React ecosystem**, **TypeScript**, and modern design methods.
 
