@@ -7,11 +7,11 @@ export function PostList() {
   const { data: posts, isLoading } = postHooks.usePostQuery();
 
   return (
-    <div className="h-dvh w-full flex items-center justify-center p-3">
+    <div className="w-full h-dvh flex items-center justify-center">
       {isLoading ? (
         <Loader />
       ) : posts && posts.length > 0 ? (
-        <div className="flex gap-3 flex-col">
+        <div className="flex gap-3 flex-col overflow-auto h-full p-3">
           {posts.map((post, i) => (
             <PostListItem post={post} key={i} />
           ))}
